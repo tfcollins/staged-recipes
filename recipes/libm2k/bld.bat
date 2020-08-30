@@ -33,5 +33,8 @@ if errorlevel 1 exit 1
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1
 
-python setup.py build
-python setup.py install
+:: move Python package to the right place.
+cd %LIBRARY_PREFIX%\Lib\site-packages
+move libm2k*.egg-info %SP_DIR%
+move libm2k.py %SP_DIR%
+move _libm2k.pyd %SP_DIR%
