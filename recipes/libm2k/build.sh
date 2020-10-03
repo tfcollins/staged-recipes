@@ -5,9 +5,6 @@ set -ex
 mkdir build
 cd build
 
-# enable components explicitly so we get build error when unsatisfied
-#  WITH_LOCAL_CONFIG requires libini
-#  WITH_SERIAL_BACKEND requires libserialport
 cmake_config_args=(
     -DCMAKE_BUILD_TYPE=Release
     -DCMAKE_INSTALL_PREFIX=$PREFIX
@@ -15,7 +12,7 @@ cmake_config_args=(
     -DCMAKE_INSTALL_SBINDIR=bin
     -DENABLE_PYTHON=ON
     -DENABLE_CSHARP=OFF
-    -DENABLE_TOOLS=OFF
+    -DENABLE_TOOLS=ON
     -DBUILD_EXAMPLES=OFF
     -DINSTALL_UDEV_RULES=OFF
     -DENABLE_PACKAGING=OFF
